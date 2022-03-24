@@ -26,13 +26,6 @@ def get_product_by_id(product_id):
     return {'msg': 'not found product'}, 404
 
 def get_all_product():
-    filter = dict(request.args)
-
     all_list_product = all_product()
-
-    if filter:
-        field_filter = list(filter.keys())[0]
-        filter_name = list(filter.values())[0]
-        return filter_products(filter_name, field_filter)
 
     return jsonify(all_list_product), 200
